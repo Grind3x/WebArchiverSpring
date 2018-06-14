@@ -25,7 +25,7 @@ public class MyController {
     @RequestMapping(value = "/get_zip", produces = "application/zip")
     public ResponseEntity<byte[]> onGetZip(@RequestParam MultipartFile[] files) {
         try (ByteOutputStream bos = new ByteOutputStream();
-             ZipOutputStream zos = new ZipOutputStream(bos);) {
+             ZipOutputStream zos = new ZipOutputStream(bos)) {
             ZipEntry entry;
             for (MultipartFile file : files) {
                 entry = new ZipEntry(file.getOriginalFilename());
